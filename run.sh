@@ -1,12 +1,12 @@
 export OUT_DIR="./experiments/door-distill-0.2"
 
 accelerate launch \
-    --config_file="./configs/single_gpu.yml" \
+    --config_file="single_gpu.yml" \
     train.py \
     --seed="2023" \
     --pretrained_model_name_or_path="runwayml/stable-diffusion-v1-5" \
-    --train_data_dir="./sapien_data/open_the_door" \
-    --placeholder_token="<R>" \
+    --train_data_dir="./sapien_data/open" \
+    --placeholder_token="<v>" \
     --initializer_token="and" \
     --train_batch_size="2" \
     --gradient_accumulation_steps="4" \
@@ -27,7 +27,7 @@ accelerate launch \
 python inference.py \
 --model_id $OUT_DIR \
 --template_name "simple_pull_door_templates" \
---placeholder_string "<R>" \
+--placeholder_string "<v>" \
 --num_samples 10 \
 --guidance_scale 7.5 \
 --device "cuda:0" \
