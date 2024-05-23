@@ -5,7 +5,7 @@ accelerate launch \
     train.py \
     --seed="2023" \
     --pretrained_model_name_or_path="runwayml/stable-diffusion-v1-5" \
-    --train_data_dir="./reversion_benchmark/door_3_8" \
+    --train_data_dir="./sapien_data/open_the_door" \
     --placeholder_token="<R>" \
     --initializer_token="and" \
     --train_batch_size="2" \
