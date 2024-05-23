@@ -1,8 +1,8 @@
-export OUT_DIR="./experiments/door-308-distill-0.2"
+export OUT_DIR="./experiments/door-distill-0.2"
 
 accelerate launch \
     --config_file="./configs/single_gpu.yml" \
-    reversion_distill_unet_lora.py \
+    train.py \
     --seed="2023" \
     --pretrained_model_name_or_path="runwayml/stable-diffusion-v1-5" \
     --train_data_dir="./reversion_benchmark/door_3_8" \
@@ -30,4 +30,4 @@ python inference.py \
 --placeholder_string "<R>" \
 --num_samples 10 \
 --guidance_scale 7.5 \
---device "cuda:2" \
+--device "cuda:0" \
